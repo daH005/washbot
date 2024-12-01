@@ -1,0 +1,10 @@
+build_cache
+venv
+.idea
+__pycache__
+*.spec
+*.exe
+__test.py
+db.db
+.env
+*.log
