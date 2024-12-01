@@ -8,7 +8,11 @@ if __name__ == '__main__':
     while answer != 'yes':
         answer = input('Для сброса БД введите yes: ')
 
-    remove_file('db.db')
+    try:
+        remove_file('db.db')
+    except FileNotFoundError:
+        pass
+        
     Base.reset_db()
 
     weekdays_dates = {}
