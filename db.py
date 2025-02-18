@@ -103,9 +103,9 @@ class WeekDay(Base):
         return cls._session.query(cls).filter(cls.value == weekday_index).first()
 
     @classmethod
-    def all_sorted(cls) -> list[Self]:
+    def all_sorted_without_first_day(cls) -> list[Self]:
         cur_weekday: int = datetime.now().weekday()
-        return sorted(cls.all(), key=lambda x: 0 if x.value >= cur_weekday else 1)
+        return sorted(cls.all(), key=lambda x: 0 if x.value >= cur_weekday else 1)[1:]
 
     @property
     def text(self) -> str:

@@ -80,7 +80,7 @@ async def room_is_installed(message: Message,
 @check_room_having
 async def wash(message: Message) -> None:
     keyboard = InlineKeyboardBuilder()
-    for weekday in WeekDay.all_sorted():
+    for weekday in WeekDay.all_sorted_without_first_day():
         keyboard.row(InlineKeyboardButton(
             text=weekday.text,
             callback_data=WeekDayToOrderSelectedCallbackData(weekday_id=weekday.id).pack(),
